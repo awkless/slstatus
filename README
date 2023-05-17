@@ -1,3 +1,5 @@
+-*- Patched by Awkless -*-
+
 slstatus - suckless status
 ==========================
 slstatus is a small tool for providing system status information to other
@@ -5,6 +7,11 @@ programs over the EWMH property of the root window (used by dwm(1)) or
 standard input/output. It is designed to be as efficient as possible by
 only issuing the minimum of system calls required.
 
+Patches
+-------
+
+- Fix fallthrough for -v option flag.
+- Configure config.h to my liking.
 
 Features
 --------
