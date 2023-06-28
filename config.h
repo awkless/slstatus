@@ -67,26 +67,31 @@ static const struct arg args[] = {
 	/* Display volume information... */
 	{
 		run_command,
-		"[󰕾 %3s]",
+		"%s",
+		"if [ \"$(amixer get Master | grep -oP 'off')\" = \"off\" ]; then echo \"󰖁\"; else echo \"󰕾\"; fi"
+	},
+	{
+		run_command,
+		" %3s | ",
 		"amixer get Master | grep -E -o '[0-9]{1,3}%'"
 	},
 
 	/* Display batter information... */
 	{
-		battery_perc,
-		"[󰂄 %3s% | ",
+		battery_state,
+		"%s",
 		"BAT0"
 	},
 	{
-		battery_state,
-		"󰂌 %s]",
+		battery_perc,
+		"󰂄 %3s% | ",
 		"BAT0"
 	},
 
 	/* Display wifi information... */
 	{
 		wifi_perc,
-		"[󰖩  %3s%]",
+		"󰖩  %3s% | ",
 		"wlp3s0"
 	},
 
@@ -94,6 +99,6 @@ static const struct arg args[] = {
 	{
 		datetime,
 		"%s",
-		"[󱑒 %T |  %F]"
+		"󱑒 %T |  %F"
 	},
 };
