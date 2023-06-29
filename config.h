@@ -68,12 +68,12 @@ static const struct arg args[] = {
 	{
 		run_command,
 		"%s",
-		"if [ \"$(amixer get Master | grep -oP 'off')\" = \"off\" ]; then echo \"󰖁\"; else echo \"󰕾\"; fi"
+		"if [ \"$(pamixer --get-mute)\" = \"true\" ]; then echo \"󰖁\"; else echo \"󰕾\"; fi"
 	},
 	{
 		run_command,
-		" %3s | ",
-		"amixer get Master | grep -E -o '[0-9]{1,3}%'"
+		" %3s% | ",
+		"pamixer --get-volume"
 	},
 
 	/* Display batter information... */
